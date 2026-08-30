@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #ffffff;
+  --sidebar-bg: #ffffff;
+  --surface: #ffffff;
+  --surface-hover: #f7f8f9;
+  --border: #e7e9ec;
+  --border-soft: #eef0f2;
+
+  --text: #1a1d21;
+  --text-muted: #6b7280;
+  --text-dim: #9aa1ab;
+
+  /* Primary green — Compose button, Login CTA, "sent" state, active nav */
+  --green: #16a34a;
+  --green-dark: #0f7a37;
+  --green-soft-bg: #eafaf0;
+  --green-soft-text: #0f7a37;
+
+  /* Amber — "scheduled" state */
+  --amber-soft-bg: #fdf1dd;
+  --amber-soft-text: #a15c07;
+
+  /* Coral — "failed" state */
+  --coral-soft-bg: #fde8e8;
+  --coral-soft-text: #b42318;
+
+  --violet-soft-bg: #ede9fe;
+  --violet-soft-text: #6d28d9;
+
+  --font-display: var(--font-sora);
+  --font-body: var(--font-inter);
+  --font-mono: var(--font-plex-mono);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-sidebar-bg: var(--sidebar-bg);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-border: var(--border);
+  --color-border-soft: var(--border-soft);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-text-dim: var(--text-dim);
+  --color-green: var(--green);
+  --color-green-dark: var(--green-dark);
+  --color-green-soft-bg: var(--green-soft-bg);
+  --color-green-soft-text: var(--green-soft-text);
+  --color-amber-soft-bg: var(--amber-soft-bg);
+  --color-amber-soft-text: var(--amber-soft-text);
+  --color-coral-soft-bg: var(--coral-soft-bg);
+  --color-coral-soft-text: var(--coral-soft-text);
+  --color-violet-soft-bg: var(--violet-soft-bg);
+  --color-violet-soft-text: var(--violet-soft-text);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+}
+
+* {
+  border-color: var(--border);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--green);
+  color: #ffffff;
+}
+
+@keyframes led-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+.led-pulse {
+  animation: led-pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes fade-in-up {
+  from { transform: translateY(8px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .led-pulse, .animate-fade-in-up {
+    animation: none;
+  }
+}
